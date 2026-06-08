@@ -1,5 +1,52 @@
 [gd_scene format=3 uid="uid://cyikrrms4wm3d"]
 
-[node name="Jogo" type="Node2D" unique_id=1686461643]
+[ext_resource type="Script" uid="uid://w730fr6jk17c" path="res://jogo.gd" id="1_1ap6j"]
+[ext_resource type="Texture2D" uid="uid://bdudh8qtyey1j" path="res://fundojogoazul.jpg" id="2_qn35j"]
+[ext_resource type="Texture2D" uid="uid://b3pvqvg2haav1" path="res://db1239d432570959fd7c192c6a0d8fc0.jpg" id="3_8c340"]
+[ext_resource type="Texture2D" uid="uid://bej8mrsrl10x2" path="res://Assets Godot Runner/player.png" id="4_45nkh"]
 
-[node name="fundo" type="Sprite2D" parent="." unique_id=343318512]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ysdx3"]
+size = Vector2(2308, 125.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t8pok"]
+
+[node name="jogo" type="Node2D" unique_id=1139248690]
+script = ExtResource("1_1ap6j")
+velocidade = null
+
+[node name="fundo" type="Sprite2D" parent="." unique_id=668073986]
+scale = Vector2(1.7127976, 1.5619048)
+texture = ExtResource("2_qn35j")
+centered = false
+
+[node name="fundo2" type="Sprite2D" parent="." unique_id=1536725542]
+position = Vector2(1148, -3)
+scale = Vector2(1.7068454, 1.5642858)
+texture = ExtResource("2_qn35j")
+centered = false
+
+[node name="chao" type="Sprite2D" parent="." unique_id=1414323465]
+position = Vector2(-7, 523)
+scale = Vector2(0.9791318, 0.31165913)
+texture = ExtResource("3_8c340")
+centered = false
+
+[node name="chao2" type="Sprite2D" parent="." unique_id=904258086]
+position = Vector2(1156, 524.00006)
+scale = Vector2(0.9524208, 0.29820624)
+texture = ExtResource("3_8c340")
+centered = false
+
+[node name="chaofisico" type="StaticBody2D" parent="." unique_id=633972650]
+
+[node name="corpochao" type="CollisionShape2D" parent="chaofisico" unique_id=438510309]
+position = Vector2(1145, 595.25)
+shape = SubResource("RectangleShape2D_ysdx3")
+
+[node name="jogador" type="CharacterBody2D" parent="." unique_id=1453266217]
+
+[node name="corpo" type="CollisionShape2D" parent="jogador" unique_id=1806442153]
+shape = SubResource("CircleShape2D_t8pok")
+
+[node name="imagem" type="Sprite2D" parent="jogador" unique_id=855118972]
+texture = ExtResource("4_45nkh")
